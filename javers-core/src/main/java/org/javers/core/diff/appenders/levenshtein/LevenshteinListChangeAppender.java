@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author kornel kiełczewski
  */
-class LevenshteinListChangeAppender extends CorePropertyChangeAppender<ListChange> {
+public class LevenshteinListChangeAppender extends CorePropertyChangeAppender<ListChange> {
 
     private static final Logger logger = LoggerFactory.getLogger(LevenshteinListChangeAppender.class);
 

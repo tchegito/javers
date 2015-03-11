@@ -18,7 +18,7 @@ import static org.javers.common.collections.Lists.asMap;
 /**
  * @author pawel szymczyk
  */
-class ListChangeAppender extends CorePropertyChangeAppender<ListChange> {
+public class ListChangeAppender extends CorePropertyChangeAppender<ListChange> {
 
     private static final Logger logger = LoggerFactory.getLogger(ListChangeAppender.class);
 

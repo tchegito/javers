@@ -3,8 +3,12 @@ package org.javers.core;
 import com.google.gson.TypeAdapter;
 import org.javers.core.commit.CommitFactoryModule;
 import org.javers.core.diff.DiffFactoryModule;
+import org.javers.core.diff.appenders.CorePropertyChangeAppender;
 import org.javers.core.diff.appenders.DiffAppendersModule;
+import org.javers.core.diff.appenders.ListChangeAppender;
+import org.javers.core.diff.appenders.levenshtein.LevenshteinListChangeAppender;
 import org.javers.core.diff.changetype.PropertyChange;
+import org.javers.core.diff.changetype.container.ListChange;
 import org.javers.core.diff.custom.CustomPropertyComparator;
 import org.javers.core.diff.custom.CustomToNativeAppenderAdapter;
 import org.javers.core.json.JsonConverter;
@@ -13,7 +17,13 @@ import org.javers.core.json.JsonTypeAdapter;
 import org.javers.core.json.typeadapter.change.ChangeTypeAdaptersModule;
 import org.javers.core.json.typeadapter.commit.CommitTypeAdaptersModule;
 import org.javers.core.metamodel.annotation.DiffIgnore;
-import org.javers.core.metamodel.clazz.*;
+import org.javers.core.metamodel.clazz.ClientsClassDefinition;
+import org.javers.core.metamodel.clazz.CustomDefinition;
+import org.javers.core.metamodel.clazz.Entity;
+import org.javers.core.metamodel.clazz.EntityDefinition;
+import org.javers.core.metamodel.clazz.ManagedClassFactoryModule;
+import org.javers.core.metamodel.clazz.ValueDefinition;
+import org.javers.core.metamodel.clazz.ValueObjectDefinition;
 import org.javers.core.metamodel.type.CustomType;
 import org.javers.core.metamodel.type.TypeMapper;
 import org.javers.core.metamodel.type.ValueObjectType;
@@ -55,6 +65,9 @@ public class JaversBuilder extends AbstractJaversBuilder {
     private static final Logger logger = LoggerFactory.getLogger(JaversBuilder.class);
 
     private final Set<ClientsClassDefinition> clientsClassDefinitions = new HashSet<>();
+
+    private Class<? extends CorePropertyChangeAppender<ListChange>> listChangeAppenderClass = ListChangeAppender.class;
+    
     private JaversRepository repository;
 
 
@@ -71,7 +84,6 @@ public class JaversBuilder extends AbstractJaversBuilder {
         // bootstrap phase 1: core beans
         bootContainer();
         addModule(new CoreJaversModule(getContainer()));
-        addModule(new DiffAppendersModule(getContainer()));
         addModule(new DiffFactoryModule());
         addModule(new CommitFactoryModule(getContainer()));
         addModule(new GraphSnapshotModule(getContainer()));
@@ -86,7 +98,14 @@ public class JaversBuilder extends AbstractJaversBuilder {
         return javers;
     }
 
+    public JaversBuilder withLevensteinListAppender() {
+        listChangeAppenderClass = LevenshteinListChangeAppender.class;
+        return this;
+    }
+
     protected Javers assembleJaversInstance(){
+        addModule(new DiffAppendersModule(getContainer(), listChangeAppenderClass));
+
         // ManagedClassFactory & managed clazz registration
         bootManagedClasses();
 
@@ -339,7 +358,7 @@ public class JaversBuilder extends AbstractJaversBuilder {
             addComponent(repository);
         }
 
-       //JaversExtendedRepository can be created after users calls JaversBuilder.registerJaversRepository()
+        //JaversExtendedRepository can be created after users calls JaversBuilder.registerJaversRepository()
         addComponent(JaversExtendedRepository.class);
     }
 }

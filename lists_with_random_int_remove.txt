@@ -1,0 +1,62 @@
+psql
+Dummy, elements in list: 1050, commits: 100 total time: 94.00 ms, average 0.94
+Dummy, elements in list: 5050, commits: 100 total time: 454.00 ms, average 4.54
+Dummy, elements in list: 10050, commits: 100 total time: 875.00 ms, average 8.75
+Dummy, elements in list: 1050, commits: 1000 total time: 608.00 ms, average 0.608
+Dummy, elements in list: 5050, commits: 1000 total time: 5205.00 ms, average 5.205
+Dummy, elements in list: 10050, commits: 1000 total time: 11012.00 ms, average 11.012
+Levenstein, elements in list: 1050, commits: 100 total time: 1385.00 ms, average 13.85
+Levenstein, elements in list: 5050, commits: 100 total time: 33533.00 ms, average 335.33
+Levenstein, elements in list: 10050, commits: 100 total time: 153643.00 ms, average 1536.43
+Levenstein, elements in list: 1050, commits: 1000 total time: 6351.00 ms, average 6.351
+Levenstein, elements in list: 5050, commits: 1000 total time: 277437.00 ms, average 277.437
+Levenstein, elements in list: 10050, commits: 1000 total time: 1420944.00 ms, average 1420.944
+
+
+psql
+Dummy, elements in list: 1050, commits: 100 total time: 136.00 ms, average 1.36
+Dummy, elements in list: 5050, commits: 100 total time: 484.00 ms, average 4.84
+Dummy, elements in list: 10050, commits: 100 total time: 997.00 ms, average 9.97
+Dummy, elements in list: 1050, commits: 1000 total time: 715.00 ms, average 0.715
+Dummy, elements in list: 5050, commits: 1000 total time: 6041.00 ms, average 6.041
+Levenstein, elements in list: 1050, commits: 100 total time: 941.00 ms, average 9.41
+Levenstein, elements in list: 5050, commits: 100 total time: 19926.00 ms, average 199.26
+Levenstein, elements in list: 10050, commits: 100 total time: 101740.00 ms, average 1017.4
+Levenstein, elements in list: 1050, commits: 1000 total time: 3579.00 ms, average 3.579
+Levenstein, elements in list: 5050, commits: 1000 total time: 176392.00 ms, average 176.392
+
+
+h2
+Dummy, elements in list: 150, commits: 100 total time: 116.00 ms, average 1.16
+Dummy, elements in list: 250, commits: 100 total time: 65.00 ms, average 0.65
+Dummy, elements in list: 550, commits: 100 total time: 95.00 ms, average 0.95
+Dummy, elements in list: 1050, commits: 100 total time: 143.00 ms, average 1.43
+Dummy, elements in list: 5050, commits: 100 total time: 570.00 ms, average 5.7
+Dummy, elements in list: 10050, commits: 100 total time: 1682.00 ms, average 16.82
+Dummy, elements in list: 1050, commits: 1000 total time: 668.00 ms, average 0.668
+Dummy, elements in list: 5050, commits: 1000 total time: 5317.00 ms, average 5.317
+Levenstein, elements in list: 150, commits: 100 total time: 116.00 ms, average 1.16
+Levenstein, elements in list: 250, commits: 100 total time: 87.00 ms, average 0.87
+Levenstein, elements in list: 550, commits: 100 total time: 269.00 ms, average 2.69
+Levenstein, elements in list: 1050, commits: 100 total time: 958.00 ms, average 9.58
+Levenstein, elements in list: 5050, commits: 100 total time: 19916.00 ms, average 199.16
+Levenstein, elements in list: 10050, commits: 100 total time: 101618.00 ms, average 1016.18
+Levenstein, elements in list: 1050, commits: 1000 total time: 3853.00 ms, average 3.853
+Levenstein, elements in list: 5050, commits: 1000 total time: 179340.00 ms, average 179.34
+
+h2
+Dummy, elements in list: 200, commits: 100 total time: 122.00 ms, average 1.22
+Dummy, elements in list: 400, commits: 100 total time: 80.00 ms, average 0.8
+Dummy, elements in list: 600, commits: 100 total time: 93.00 ms, average 0.93
+Dummy, elements in list: 800, commits: 100 total time: 124.00 ms, average 1.24
+Dummy, elements in list: 1000, commits: 100 total time: 154.00 ms, average 1.54
+Dummy, elements in list: 3000, commits: 100 total time: 319.00 ms, average 3.19
+Dummy, elements in list: 5000, commits: 100 total time: 513.00 ms, average 5.13
+
+Levenstein, elements in list: 200, commits: 100 total time: 80.00 ms, average 0.8
+Levenstein, elements in list: 400, commits: 100 total time: 203.00 ms, average 2.03
+Levenstein, elements in list: 600, commits: 100 total time: 469.00 ms, average 4.69
+Levenstein, elements in list: 800, commits: 100 total time: 817.00 ms, average 8.17
+Levenstein, elements in list: 1000, commits: 100 total time: 1272.00 ms, average 12.72
+Levenstein, elements in list: 3000, commits: 100 total time: 11679.00 ms, average 116.79
+Levenstein, elements in list: 5000, commits: 100 total time: 33317.00 ms, average 333.17

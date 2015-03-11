@@ -1,10 +1,10 @@
 package org.javers.repository.sql;
 
-import org.javers.common.collections.Lists;
 import org.javers.core.metamodel.annotation.Id;
-import org.joda.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * class for performance tests
@@ -17,25 +17,27 @@ class PerformanceEntity {
 
     List<PerformanceEntity> refs = new ArrayList<>();
 
-    List<Integer> intList = Lists.asList(1, 2, 3, 4, 5, 6, 7, 8, 10);
+    List<Integer> intList;
 
-    String str1 = "PerformanceEntity.str1";
-    String str2 = "PerformanceEntity.str2";
-    String str3 = "PerformanceEntity.str3";
-    String str4 = "PerformanceEntity.str4";
-    String str5 = "PerformanceEntity.str5";
-
-    LocalDate date1 = new LocalDate(2001, 1, 1);
-    LocalDate date2 = new LocalDate(2001, 1, 2);
-    LocalDate date3 = new LocalDate(2001, 1, 3);
-    LocalDate date4 = new LocalDate(2001, 1, 4);
-    LocalDate date5 = new LocalDate(2001, 1, 5);
-
-    void change() {
-        intList.set(0, intList.get(0) + 1);
-
-        for (PerformanceEntity ref : refs) {
-            ref.change();
+    public PerformanceEntity generateRandomList(int count) {
+        intList = new ArrayList<>();
+        Random random = new Random();
+        for (int i=0; i< count; i++) {
+            intList.add(i, random.nextInt());
         }
+        return this;
+    }
+
+    public PerformanceEntity changeAll() {
+        Random random = new Random();
+        for (int i=0; i< intList.size(); i++) {
+            intList.set(i, random.nextInt());
+        }
+        return this;
+    }
+
+    public PerformanceEntity removeElement(int index) {
+        intList.remove(index);
+        return this;
     }
 }
