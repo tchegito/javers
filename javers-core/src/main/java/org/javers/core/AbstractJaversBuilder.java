@@ -52,11 +52,16 @@ public abstract class AbstractJaversBuilder {
         container.addComponent(classOrInstance);
     }
 
-    protected void bindComponent(Class bindToInterface, Object implementationOrInstance) {
+    protected void bindComponent(Object componentKey, Object implementationOrInstance) {
         checkIfBuilt();
-        container.addComponent(bindToInterface, implementationOrInstance);
+        container.addComponent(componentKey, implementationOrInstance);
     }
 
+    protected void removeComponent(Object classOrInstance) {
+        checkIfBuilt();
+        container.removeComponent(classOrInstance);
+    }
+    
     private void checkIfNotBuilt() {
         if (isBuilt()) {
             throw new JaversException(JaversExceptionCode.ALREADY_BUILT);
